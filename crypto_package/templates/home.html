@@ -1,0 +1,69 @@
+<!-- <h1>Home Page</h1> Template inheritance -->
+{% extends 'base.html' %}
+{% block title %} 
+CryptoMarket - Home page  
+{% endblock%}
+
+{% block headline%}
+Home
+{% endblock%}
+
+{% block body%}
+<h4>Shubham's CryptoMarket Website where you can see the Prices of Cryptocurrencies and do trading also... Please Signin to start trading now :)</h4> 
+Customize your Home Page Shubham
+{% if current_user.is_authenticated %}
+   <table class='table table-hover table-dark'>
+      <thead>
+         <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">24hr change</th>
+            <th scope="col">Trade</th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for market in market %} <!--Logic code of python basically known as jinja syntax-->            
+         <tr>
+            <td>{{ market.id }}</td>
+            <td>{{ market.name }}</td>
+            <td>{{ market.price }}$</td>
+            <td>{{ market.change }}% </td>
+            <td>
+               <a class="btn btn-outline-success" href=" {{ url_for('market_page') }} ">Buy</a>
+               <a class="btn btn-outline-danger" href="{{ url_for('market_page') }}">Sell</a>
+            </td>
+         </tr>
+         {% endfor %}  <!--To end Logic code of python -->
+      </tbody>
+   </table>
+{% else %}
+   {% include 'helper/login_modal.html' %}
+   <table class='table table-hover table-dark'>
+      <thead>
+         <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">24hr change</th>
+            <th scope="col">Trade</th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for market in market %} <!--Logic code of python basically known as jinja syntax-->            
+         <tr>
+            <td>{{ market.id }}</td>
+            <td>{{ market.name }}</td>
+            <td>{{ market.price }}$</td>
+            <td>{{ market.change }}% </td>
+            <td>
+               <button class="btn btn-outline-success"  data-toggle="modal" data-target="#LoginModal">Buy</button>
+               <button class="btn btn-outline-danger" data-toggle="modal" data-target="#LoginModal">Sell</button>
+            </td>
+         </tr>
+         {% endfor %}  <!--To end Logic code of python -->
+      </tbody>
+   </table>
+
+{% endif %}
+{% endblock %}

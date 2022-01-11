@@ -1,0 +1,63 @@
+ Nov...Mage...2/Jan/2022
+ {'SNo':'1', 'Name': 'Bitcoin', 'Price': '$47,440.31', 'change' : '-1.17%'},
+        {'SNo':'2', 'Name': 'Ethereum', 'Price': '$3,746.83', 'change': '+0.63%'},
+        {'SNo':'3', 'Name': 'Binance Coin', 'Price': '$523.04', 'change': '+1.50%'},
+        {'SNo':'4', 'Name': 'Tether', 'Price': '$1.00', 'change': '+0.03%'}        
+   
+from crypto import db
+from crypto import Currency
+currency1 = Currency(name = "Bitcoin", price = 47440.31, change = -1.17)
+currency2 = Currency(name = "Ethereum", price = 3746.83, change = +0.63)
+currency3 = Currency(name = "Binance Coin", price = 523.04, change = +1.50)
+currency4 = Currency(name = "Tether", price = 1.00, change = +0.03)
+currency5 = Currency(name = "Filecoin", price = 29, change = -6.53)
+currency6 = Currency(name = "Polygon", price = 2, change = -8.38)
+currency7 = Currency(name = "Polkadot", price = 23, change = -8.04)
+currency8 = Currency(name = "Terra", price = 63, change = +10.81)
+currency9 = Currency(name = "Avalanche", price = 80, change = -8.91)
+currency10 = Currency(name = "Solana", price = 134, change = +2.79)
+currency11 = Currency(name = "Chainlink", price = 23, change = +17.37)
+currency12 = Currency(name = "USD Coin", price = 1, change = +0.10)
+currency13 = Currency(name = "Tezos", price = 3, change = -6.94)
+from crypto_package import db  
+from crypto_package.models import Currency 
+db.session.add(currency2)
+db.session.commit()
+Currency.query.all()
+
+u1 = User(username = "Poseidon SV", email = "20shubh01@gmail.com", password_hash = "Shubh1stWebPage")
+20shubh01@gmail.com
+>>> for currency in Currency.query.all():
+...     currency.name
+...     currency.price
+...     currency.change
+...
+'Bitcoin'
+'$47,440.31'
+-1.17
+'Ethereum'
+'$3,746.83'
+0.63
+'Binance Coin'
+'$523.04'
+1.5
+'Tether'
+'$1.00'
+0.03
+
+>>> for currency in Currency.query.filter_by(change = 0.03): 
+...     currency.name
+... 
+'Tether'
+
+db.drop_all()  empty the table
+
+import os
+os.system('cls')
+
+os.urandom(12).hex()
+'c57fa793145800760a696639'
+
+Shubh1stWebPage
+
+db.create_all()

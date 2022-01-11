@@ -1,0 +1,64 @@
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button> #323A40 #70B5C4 #385B62 #191D20-->
+<style>
+  .modal-content {
+    background-color:  #70b5c4d7;
+  }
+
+</style>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter-{{ items.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-weight:700" id="exampleModalLongTitle"> Buying {{ items.name }} for {{ items.price }}$</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        𝐂𝐫𝐲𝐩𝐭𝐨𝐜𝐮𝐫𝐫𝐞𝐧𝐜𝐲 𝐢𝐧𝐯𝐞𝐬𝐭𝐦𝐞𝐧𝐭𝐬 are subjected to market risks, Please read all scheme related doucments carefully.
+      </div>
+      
+      <div class="modal-footer">
+        <form method="POST">
+          {{ purchase_form.hidden_tag() }}
+          <input id="purchased_currency" name="purchased_currency" type="hidden" value="{{ items.name }}">
+          {{ purchase_form.submit (class="btn btn-success")}}
+        </form>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel trading</button>        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCentersell-{{ owned_currency.id }}" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-weight:700" id="exampleModalLongTitle"> Selling {{ owned_currency.name }} for {{ owned_currency.price }}$</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        𝐂𝐫𝐲𝐩𝐭𝐨𝐜𝐮𝐫𝐫𝐞𝐧𝐜𝐲 𝐢𝐧𝐯𝐞𝐬𝐭𝐦𝐞𝐧𝐭𝐬 are subjected to market risks, Please read all scheme related doucments carefully.
+      </div>
+      
+      <div class="modal-footer">
+        <form method="POST">
+          {{ selling_form.hidden_tag() }}
+          <input id="purchased_currency" name="purchased_currency" type="hidden" value="{{ owned_currency.name }}">
+          {{ selling_form.submit (class="btn btn-success")}}
+        </form>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel trading</button>        
+      </div>
+    </div>
+  </div>
+</div>
+

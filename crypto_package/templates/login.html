@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} 
+CryptoMarket - Login page 
+{% endblock%}
+
+{% block headline%}
+Please Login here
+{% endblock %}
+
+{% block body%}
+ <body> <!--class="text-center"> -->
+    <div class="container">
+        <form method="POST" class = "form-register" style="color:rgba(0, 0, 0, 0.44)">
+            {{ form.hidden_tag() }}
+            
+            {{ form.username.label() }}
+            {{ form.username(class = "form-control", placeholder = "username") }}
+            <br>
+            {{ form.password.label() }}
+            {{ form.password(class = "form-control", placeholder = "password") }}
+            <br>
+            <center>{{ form.submit(class ="btn btn-lg btn-primary")}}</center>
+            <br>
+            <center><div class="checkbox mb-3 ">
+                <h2>Do not have an account..?</h2>
+                <a class="btn btn-sn btn-secondary" href="{{url_for('register_page') }}">Register</a>
+            </div></center>
+            
+        </form>
+    </div>
+        
+</body>
+
+{% endblock %} 
